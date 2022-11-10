@@ -2,7 +2,8 @@
 
 This is a diary of my first attempt to use Key4HEP.
 
-# November 10, 2022
+## November 10, 2022
+
   - "google" (actually using ecosia) key4hep, first hit yields https://key4hep.github.io/key4hep-doc/
   - log in to lxplus.cern.ch
   - create new directory key4hep
@@ -16,9 +17,9 @@ This is a diary of my first attempt to use Key4HEP.
      - the tutorial has local processors to be compiled, maybe start with one of the normal example processors from MarlinKinfitProcessors, WW5CFit
   - get some data file. 
      - Quick: scp one from DESY ... immediately exceeds disk space :(
-     - TODO: 
-       - ask André whether there is a similar easy access to local grid like /pnfs ...
-       - ask for group afs space or so
+     - **TODO:** 
+       - **ask André whether there is a similar easy access to local grid like /pnfs ...**
+       - **ask for group afs space or so**
      - for now: try on DESY NAF...:
        - mkdir key4hep/first_trial
        - bash
@@ -32,8 +33,8 @@ This is a diary of my first attempt to use Key4HEP.
         - loading libraries works... but awfully slow ... and crash.
         -  ok, my mistake: WW5CFit.xml is so old that it doesn't have DD4HEPInit yet... Adding it from MarlinKinfitTutorials/ZHAnalysis.html, and try again
         -  works, and library loading fast :) 
-        -  TODO: find out where to get GEAR file in key4hep world, currently still using 
-          /cvmfs/ilc.desy.de/sw/ILDConfig/v02-02-03/StandardConfig/production/Gear/gear_ILD_l5_v02.xml
+        -  **TODO: find out where to get GEAR file in key4hep world**, currently still using /cvmfs/ilc.desy.de/sw/ILDConfig/v02-02-03/StandardConfig/production/Gear/gear_ILD_l5_v02.xml
+        -  and hey, I get a root file out !!! :)
 
 
 
