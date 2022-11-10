@@ -25,6 +25,15 @@ This is a diary of my first attempt to use Key4HEP.
        - source /cvmfs/sw.hsf.org/key4hep/setup.sh 
        - git clone https://github.com/iLCSoft/MarlinKinfitProcessors.git
        - mkdir run, cp WW5CFit.xml there, change input file to   /pnfs/desy.de/ilc/prod/ilc/mc-opt-3/ild/dst-merged/500-TDR_ws/4f_WW_hadronic/ILD_l5_o1_v02/v02-00-01/rv02-00-01.sv02-00-01.mILD_l5_o1_v02.E500-TDR_ws.I250006.P4f_ww_h.eL.pR.n001.d_dstm_10398_0.slcio
-   - here we are - now back to CLIC reconstruction instructions...
+  - here we are - now back to CLIC reconstruction instructions... https://key4hep.github.io/key4hep-doc/k4marlinwrapper/doc/starterkit/k4MarlinWrapperCLIC/Readme.html#reconstruction
+     - need appropriate DD4hepXMLFile.... check what's in $LCGEO/ILD/compact/ILD_l5_o1_v02 - many xml files ....let's take simply *ILD_l5_o1_v02.xml* and hope for the best...
+     - first try Marlin directly:
+        - Marlin WW5CFit.xml --InitDD4hep.DD4hepXMLFile=$LCGEO/ILD/compact/ILD_l5_o1_v02/ILD_l5_o1_v02.xml
+        - loading libraries works... but awfully slow ... and crash.
+        -  ok, my mistake: WW5CFit.xml is so old that it doesn't have DD4HEPInit yet... Adding it from MarlinKinfitTutorials/ZHAnalysis.html, and try again
+        -  works, and library loading fast :) 
+        -  TODO: find out where to get GEAR file in key4hep world, currently still using 
+          /cvmfs/ilc.desy.de/sw/ILDConfig/v02-02-03/StandardConfig/production/Gear/gear_ILD_l5_v02.xml
+
 
 
