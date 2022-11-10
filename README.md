@@ -12,5 +12,19 @@ This is a diary of my first attempt to use Key4HEP.
          - probably need to use bash ? => yes, when using bash, the setup scripts seems to work
      - since I don't want to run the CLIC simulation & reconstruction, but a kinematic fit example, I clone 
        - the MarlinKinfit tutorial:  git clone https://github.com/ILDAnaSoft/MarlinKinfitTutorial.git
-       - MarlinKinfitProcessors : git clone https://github.com/ILDAnaSoft/MarlinKinfitTutorial.git
+       - MarlinKinfitProcessors : git clone https://github.com/iLCSoft/MarlinKinfitProcessors.git
+     - the tutorial has local processors to be compiled, maybe start with one of the normal example processors from MarlinKinfitProcessors, WW5CFit
+  - get some data file. 
+     - Quick: scp one from DESY ... immediately exceeds disk space :(
+     - TODO: 
+       - ask André whether there is a similar easy access to local grid like /pnfs ...
+       - ask for group afs space or so
+     - for now: try on DESY NAF...:
+       - mkdir key4hep/first_trial
+       - bash
+       - source /cvmfs/sw.hsf.org/key4hep/setup.sh 
+       - git clone https://github.com/iLCSoft/MarlinKinfitProcessors.git
+       - mkdir run, cp WW5CFit.xml there, change input file to   /pnfs/desy.de/ilc/prod/ilc/mc-opt-3/ild/dst-merged/500-TDR_ws/4f_WW_hadronic/ILD_l5_o1_v02/v02-00-01/rv02-00-01.sv02-00-01.mILD_l5_o1_v02.E500-TDR_ws.I250006.P4f_ww_h.eL.pR.n001.d_dstm_10398_0.slcio
+   - here we are - now back to CLIC reconstruction instructions...
+
 
