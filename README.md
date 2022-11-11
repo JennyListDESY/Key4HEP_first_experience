@@ -61,7 +61,7 @@ This is a diary of my first attempt to use Key4HEP.
 /cvmfs/sw.hsf.org/spackages6/root/6.26.06/x86_64-centos7-gcc11.2.0-opt/bc7bv/include/ROOT/RConfig.hxx:50:5: error: #error "Pass `-std=c++14` as compiler argument."
    50 | #   error "Pass `-std=c++14` as compiler argument."
    
-   **use cmake -D CMAKE_CXX_STANDARD=17 ..**
+   **Solution: use cmake -D CMAKE_CXX_STANDARD=17 ..**
 
 
 
