@@ -19,6 +19,7 @@ This is a diary of my first attempt to use Key4HEP.
      - Quick: scp one from DESY ... immediately out of disk space 
           ** addendum Nov 11:** asked André -> increase home and add workspace on
           https://resources.web.cern.ch/resources/Manage/AFS/Settings.aspx
+          got access to /eos/experiment/clicdp/grid/
      - for now: try on DESY NAF...:
        - mkdir key4hep/first_trial
        - bash
@@ -54,7 +55,7 @@ This is a diary of my first attempt to use Key4HEP.
 - what next? Try compiling local processor. Needed for: ZH example and switching on tracer, and for working on LCIO / EDM4HEP output
 - https://key4hep.github.io/key4hep-doc/developing-key4hep-software/Key4hepCMakeGuide.html
    - mkdir build; cd build; cmake .. - all fine
-   - make install is a desaster: 
+   - make install is a desaster, thousands of: 
 /cvmfs/sw.hsf.org/spackages6/root/6.26.06/x86_64-centos7-gcc11.2.0-opt/bc7bv/include/ROOT/RConfig.hxx:48:4: error: #error "ROOT requires support for C++14 or higher."
    48 | #  error "ROOT requires support for C++14 or higher."
       |    ^~~~~
@@ -62,6 +63,8 @@ This is a diary of my first attempt to use Key4HEP.
    50 | #   error "Pass `-std=c++14` as compiler argument."
    
    **Solution: use cmake -D CMAKE_CXX_STANDARD=17 ..**
+- ok, so now changed WW5CFit to book histos in initialize and successfully compiled, linked, installed. 
+- CLIC instructions say that only LD_LIBRARYPATH needs updating, export LD_LIBRARY_PATH=$PWD/lib:$PWD/lib64:$LD_LIBRARY_PATH   
 
 
 
