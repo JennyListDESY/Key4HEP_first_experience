@@ -16,10 +16,9 @@ This is a diary of my first attempt to use Key4HEP.
        - MarlinKinfitProcessors : git clone https://github.com/iLCSoft/MarlinKinfitProcessors.git
        - the tutorial has local processors to be compiled, maybe start with one of the normal example processors from MarlinKinfitProcessors, WW5CFit
    - get some data file. 
-     - Quick: scp one from DESY ... immediately exceeds disk space :(
-     - **TODO:** 
-       - **ask André whether there is a similar easy access to local grid like /pnfs ...**
-       - **ask for group afs space or so**
+     - Quick: scp one from DESY ... immediately out of disk space 
+          ** addendum Nov 11:** asked André -> increase home and add workspace on
+          https://resources.web.cern.ch/resources/Manage/AFS/Settings.aspx
      - for now: try on DESY NAF...:
        - mkdir key4hep/first_trial
        - bash
@@ -33,7 +32,7 @@ This is a diary of my first attempt to use Key4HEP.
         - loading libraries works... but awfully slow ... and crash.
         -  ok, my mistake: WW5CFit.xml is so old that it doesn't have DD4HEPInit yet... Adding it from MarlinKinfitTutorials/ZHAnalysis.html, and try again
         -  works, and library loading fast :) 
-        -  **TODO: find out where to get GEAR file in key4hep world**, currently still using /cvmfs/ilc.desy.de/sw/ILDConfig/v02-02-03/StandardConfig/production/Gear/gear_ILD_l5_v02.xml
+        -  **addendum Nov 11:** can simply delete line with the GEAR file from .xml
         -  and hey, I get a root file out !!! :)
 
 
@@ -51,8 +50,18 @@ This is a diary of my first attempt to use Key4HEP.
    -  runs, and produces a root file -> check for differences...=> only very few events => ah, MaxRecordNumber is not translated in xml->py conversion
    -  set from 10 to 1000 and try again... hm, it says it reads 1000 event and finds 4000 jets
    -  ... but actually histos still nearly empty... log file seems to indicate that histograms are re-creted for each event ?!
-      **=> TODO: ask André whether RAIDA works at all with MarlinWrapper and/or what alternative way there is to fill histograms**
-
+      **addendum Nov 11: RAIDA works, problem is related to private function firstEvent() of the Marlin base processor class, which cannot be called by wrapper. Would need to become public... SOLUTION: move histo booking to init() **
+- what next? Try compiling local processor. Needed for: ZH example and switching on tracer, and for working on LCIO / EDM4HEP output
+- https://key4hep.github.io/key4hep-doc/developing-key4hep-software/Key4hepCMakeGuide.html
+   - mkdir build; cd build; cmake .. - all fine
+   - make install is a desaster: 
+/cvmfs/sw.hsf.org/spackages6/root/6.26.06/x86_64-centos7-gcc11.2.0-opt/bc7bv/include/ROOT/RConfig.hxx:48:4: error: #error "ROOT requires support for C++14 or higher."
+   48 | #  error "ROOT requires support for C++14 or higher."
+      |    ^~~~~
+/cvmfs/sw.hsf.org/spackages6/root/6.26.06/x86_64-centos7-gcc11.2.0-opt/bc7bv/include/ROOT/RConfig.hxx:50:5: error: #error "Pass `-std=c++14` as compiler argument."
+   50 | #   error "Pass `-std=c++14` as compiler argument."
+   
+   **use cmake -D CMAKE_CXX_STANDARD=17 ..**
 
 
 
