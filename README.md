@@ -17,7 +17,7 @@ This is a diary of my first attempt to use Key4HEP.
        - the tutorial has local processors to be compiled, maybe start with one of the normal example processors from MarlinKinfitProcessors, WW5CFit
    - get some data file. 
      - Quick: scp one from DESY ... immediately out of disk space 
-          ** addendum Nov 11:** asked André -> increase home and add workspace on
+          **addendum Nov 11:** asked André -> increase home and add workspace on
           https://resources.web.cern.ch/resources/Manage/AFS/Settings.aspx
           got access to /eos/experiment/clicdp/grid/
      - for now: try on DESY NAF...:
@@ -48,10 +48,10 @@ This is a diary of my first attempt to use Key4HEP.
    -  ah, found typo (encondin instead of encoding), fixed, now have a WW5CFit.py :)
    -  changes proposed to .py file in instruction seem to be fine already...try it
    -  k4run WW5CFit.py
-   -  runs, and produces a root file -> check for differences...=> only very few events => ah, MaxRecordNumber is not translated in xml->py conversion
-   -  set from 10 to 1000 and try again... hm, it says it reads 1000 event and finds 4000 jets
+   -  runs, and produces a root file -> check for differences...=> only very few events => ah, **MaxRecordNumber is not translated in xml->py conversion**
+   -  set maxevts directly in .py from 10 to 1000 and try again... hm, it says it reads 1000 event and finds 4000 jets
    -  ... but actually histos still nearly empty... log file seems to indicate that histograms are re-creted for each event ?!
-      **addendum Nov 11: RAIDA works, problem is related to private function firstEvent() of the Marlin base processor class, which cannot be called by wrapper. Would need to become public... SOLUTION: move histo booking to init() **
+      **addendum Nov 11: RAIDA works, problem is related to private function isFirstEvent() of the Marlin base processor class, which cannot be called by wrapper. Would need to become public... SOLUTION: move histo booking to init() **
 - what next? Try compiling local processor. Needed for: ZH example and switching on tracer, and for working on LCIO / EDM4HEP output
 - https://key4hep.github.io/key4hep-doc/developing-key4hep-software/Key4hepCMakeGuide.html
    - mkdir build; cd build; cmake .. - all fine
@@ -65,6 +65,9 @@ This is a diary of my first attempt to use Key4HEP.
    **Solution: use cmake -D CMAKE_CXX_STANDARD=17 ..**
 - ok, so now changed WW5CFit to book histos in initialize and successfully compiled, linked, installed. 
 - CLIC instructions say that only LD_LIBRARYPATH needs updating, export LD_LIBRARY_PATH=$PWD/lib:$PWD/lib64:$LD_LIBRARY_PATH   
+- **need also to update MARLIN_DLL as usual with local processors, this is missing in the CLIC instructions**
+- runs, write root file, with histograms filled (yeah!) - but ends with seg fault :( 
+- is this the "usual" one?! => Andre says no, something with processor parameters ?! to be continued next week...
 
 
 
