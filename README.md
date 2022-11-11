@@ -35,7 +35,24 @@ This is a diary of my first attempt to use Key4HEP.
         -  works, and library loading fast :) 
         -  **TODO: find out where to get GEAR file in key4hep world**, currently still using /cvmfs/ilc.desy.de/sw/ILDConfig/v02-02-03/StandardConfig/production/Gear/gear_ILD_l5_v02.xml
         -  and hey, I get a root file out !!! :)
-  -  
+
+
+## November 11, 2022
+
+-  login in to NAF again, bash, source /cvmfs/sw.hsf.org/key4hep/setup.sh 
+-  now try MarlinWrapper as in https://key4hep.github.io/key4hep-doc/k4marlinwrapper/doc/starterkit/k4MarlinWrapperCLIC/Readme.html#reconstruction-with-gaudi-through-k4marlinwrapper
+   -  convertMarlinSteeringToGaudi.py WW5CFit.xml WW5CFit.py  
+   -  results in Exception when getting trees: ParseError('XML declaration not well-formed: line 1, column 20')
+   -  arggh. 
+   -  OK, git clone https://github.com/iLCSoft/CLICPerformance to check for difference wrt CLIC steering file
+   -  ah, found typo (encondin instead of encoding), fixed, now have a WW5CFit.py :)
+   -  changes proposed to .py file in instruction seem to be fine already...try it
+   -  k4run WW5CFit.py
+   -  runs, and produces a root file -> check for differences...=> only very few events => ah, MaxRecordNumber is not translated in xml->py conversion
+   -  set from 10 to 1000 and try again... hm, it says it reads 1000 event and finds 4000 jets
+   -  ... but actually histos still nearly empty... log file seems to indicate that histograms are re-creted for each event ?!
+      **=> TODO: ask André whether RAIDA works at all with MarlinWrapper and/or what alternative way there is to fill histograms**
+
 
 
 
