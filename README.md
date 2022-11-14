@@ -51,7 +51,7 @@ This is a diary of my first attempt to use Key4HEP.
    -  runs, and produces a root file -> check for differences...=> only very few events => ah, **MaxRecordNumber is not translated in xml->py conversion**
    -  set maxevts directly in .py from 10 to 1000 and try again... hm, it says it reads 1000 event and finds 4000 jets
    -  ... but actually histos still nearly empty... log file seems to indicate that histograms are re-creted for each event ?!
-      **addendum Nov 11: RAIDA works, problem is related to private function isFirstEvent() of the Marlin base processor class, which cannot be called by wrapper. Would need to become public... SOLUTION: move histo booking to init() **
+      **addendum Nov 11: RAIDA works, problem is related to private function isFirstEvent() of the Marlin base processor class, which cannot be called by wrapper. Would need to become public... SOLUTION: move histo booking to init()**
 - what next? Try compiling local processor. Needed for: ZH example and switching on tracer, and for working on LCIO / EDM4HEP output
 - https://key4hep.github.io/key4hep-doc/developing-key4hep-software/Key4hepCMakeGuide.html
    - mkdir build; cd build; cmake .. - all fine
