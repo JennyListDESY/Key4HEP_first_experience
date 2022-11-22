@@ -71,6 +71,10 @@ This is a diary of my first attempt to use Key4HEP.
 
 ## November 21:
 
-- Julie's setup requires standard processors with configuration / weight files (IsoLep, LCFIPLus, ...) => where are these "extra files" stored in key4hep??? => ask André...
+- Julie's setup requires standard processors with configuration / weight files (IsoLep, LCFIPLus, ...) => where are these "extra files" stored in key4hep??? Frank: not at all, all of ILDConfig needs to be downloaded from github
+
+## November 22:
+
+- figured out how to change login shell on lxplus -> account.cern.ch and a lot of clicking .... :)
 - 
 
