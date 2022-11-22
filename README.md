@@ -69,5 +69,8 @@ This is a diary of my first attempt to use Key4HEP.
 - runs, write root file, with histograms filled (yeah!) - but ends with seg fault :( 
 - is this the "usual" one?! => Andre says no, something with processor parameters ?! to be continued next week...
 
+## November 21:
 
+- Julie's setup requires standard processors with configuration / weight files (IsoLep, LCFIPLus, ...) => where are these "extra files" stored in key4hep??? => ask André...
+- 
 
