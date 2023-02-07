@@ -1,6 +1,6 @@
 # Key4HEP_first_experience
 
-![This is a test](power_vs_logE_withLHCandCERN.pdf?raw=true "PvslgE")
+![This is a test](power_vs_logE_withLHCandCERN.png?raw=true "PvslgE")
 
 This is a diary of my first attempt to use Key4HEP.
 
