@@ -1,7 +1,5 @@
 # Key4HEP_first_experience
 
-![Link to the pdf and some description](power_vs_logE_withLHCandCERN.pdf)
-![This is a test](power_vs_logE_withLHCandCERN.png)
 
 
 This is a diary of my first attempt to use Key4HEP.
